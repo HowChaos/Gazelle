@@ -5,6 +5,8 @@ import (
 	"sync"
 )
 
+//Encapsulation lru with mutex
+
 type cache struct {
 	mutex      sync.Mutex
 	lru        *lru.Cache
