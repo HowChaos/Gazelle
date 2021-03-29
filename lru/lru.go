@@ -44,6 +44,7 @@ func (c *Cache) Add(key string, value Value) {
 	if ele, ok := c.cache[key]; ok {
 		//modify
 		c.ll.MoveToFront(ele)
+		//type element struct{list *List, Value interface{}}
 		kv := ele.Value.(*Entry)
 		c.nBytes += int64(value.Len()) - int64(kv.value.Len())
 		kv.value = value
