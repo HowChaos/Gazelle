@@ -1,4 +1,4 @@
-package Gazelle
+package gazelle
 
 import (
 	"fmt"
@@ -8,16 +8,17 @@ import (
 
 //identify by name
 type Group struct {
-	name   string
-	getter Getter
-	Cache  cache
+	name   string //identify
+	getter Getter //callback method
+	Cache  cache  //the cache
 }
 
 var (
 	mutex sync.RWMutex
-	group = make(map[string]*Group)
+	group = make(map[string]*Group) //store all groups
 )
 
+//a interface function, achieve a interface with call itself
 type Getter interface {
 	Get(key string) ([]byte, error)
 }
@@ -28,6 +29,7 @@ func (f GetterFunc) Get(key string) ([]byte, error) {
 	return f(key)
 }
 
+//initialization a new group
 func NewGroup(name string, cacheBytes int64, getter Getter) *Group {
 	if getter == nil {
 		panic("nil getter")

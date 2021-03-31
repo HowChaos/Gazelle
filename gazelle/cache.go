@@ -1,7 +1,7 @@
-package Gazelle
+package gazelle
 
 import (
-	"Gazelle/lru"
+	"Gazelle/gazelle/lru"
 	"sync"
 )
 

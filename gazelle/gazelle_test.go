@@ -1,4 +1,4 @@
-package Gazelle
+package gazelle
 
 import (
 	"fmt"
