@@ -22,7 +22,7 @@ func NewHTTPPool(self string) *HTTPPool {
 }
 
 func (p *HTTPPool) Log(format string, v ...interface{}) {
-	log.Printf("[Server %s] %s", p.self, fmt.Sprintf(format, v))
+	log.Printf("[Server %s] %s", p.self, fmt.Sprintf(format, v...))
 }
 
 func (p *HTTPPool) ServeHTTP(w http.ResponseWriter, r *http.Request) {
